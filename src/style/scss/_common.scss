@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: var(--text);
+  padding: 2rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: var(--transition);
+}
+
+input {
+  border: 1px solid var(--text-muted);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  background: var(--card-bg);
+  color: var(--text);
+  transition: var(--transition);
+
+  &:focus {
+    border-color: var(--primary);
+    outline: none;
+  }
+}

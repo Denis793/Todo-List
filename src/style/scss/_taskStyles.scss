@@ -1,0 +1,238 @@
+.task-manager {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  width: 100%;
+  max-width: 640px;
+  border-radius: 20px;
+  background: var(--background);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.task-list {
+  list-style: none;
+  padding: 1rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-block-end: 0.8rem;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+
+  &:hover {
+    background: #2a2a2a;
+  }
+
+  &.completed .task-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+  }
+}
+
+.task-text {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.task-time {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.left-content {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.right-content {
+  display: flex;
+  gap: 0.5rem;
+
+  button {
+    background: transparent;
+    border-radius: 6px;
+    padding: 0.3rem;
+    opacity: 0.95;
+    transform: translateY(0);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    &:active {
+      transform: scale(0.96);
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .edit-button {
+    display: flex;
+  }
+  .save-button {
+    display: none;
+  }
+}
+
+.task-item:has(.edit-input) .edit-button,
+.task-item.editing .edit-button {
+  display: none;
+}
+
+.task-item:has(.edit-input) .save-button,
+.task-item.editing .save-button {
+  display: flex;
+}
+
+.task-item.completed :where(.edit-button, .save-button) {
+  display: none;
+}
+
+.checkbox {
+  appearance: none;
+  inline-size: 20px;
+  block-size: 20px;
+  border: 2px solid var(--text-muted);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:checked {
+    border-color: var(--primary);
+    background: var(--primary);
+  }
+
+  &:checked::after {
+    content: '✔';
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    inset-block-start: 1px;
+    inset-inline-start: 4px;
+  }
+}
+
+.task-block {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 0.5rem;
+}
+
+.task-input {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.2rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background: #2a2a2a;
+  color: var(--text);
+  transition: var(--transition);
+  outline: none;
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(0, 191, 166, 0.3);
+  }
+}
+
+.add-button {
+  background: var(--primary);
+  color: var(--text);
+  border-radius: var(--border-radius);
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: var(--transition);
+  display: flex;
+  align-self: flex-start;
+
+  &:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.clear-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 1rem auto;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  color: var(--danger-color, #ef4444);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.1);
+  }
+}
+
+.clear-all-img {
+  width: 18px;
+  height: 18px;
+  transition: var(--transition);
+}
+
+.fab {
+  position: absolute;
+  inset-block-end: 2rem;
+  inset-inline-end: 2rem;
+  background: var(--primary);
+  color: var(--text);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 2rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: var(--transition);
+
+  &:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+  }
+}
+
+.input-wrapper {
+  flex: 1;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-input.error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.4);
+}
+
+.error-message {
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin-top: 0.3rem;
+  margin-left: 0.2rem;
+}
