@@ -2,6 +2,7 @@
   display: flex;
   overflow: hidden;
   flex-direction: column;
+  margin: 2rem;
   width: 100%;
   max-width: 640px;
   border-radius: 20px;
@@ -129,6 +130,9 @@
   background: var(--card-bg);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   gap: 0.5rem;
+  @media screen and (max-width: 428px) {
+    flex-direction: column;
+  }
 }
 
 .task-input {
@@ -140,6 +144,7 @@
   color: var(--text);
   transition: var(--transition);
   outline: none;
+  width: 100%;
 
   &::placeholder {
     color: var(--text-muted);
@@ -158,8 +163,7 @@
   font-size: 1rem;
   font-weight: 600;
   transition: var(--transition);
-  display: flex;
-  align-self: flex-start;
+  white-space: nowrap;
 
   &:hover {
     background: var(--primary-dark);
@@ -216,13 +220,6 @@
     background: var(--primary-dark);
     transform: scale(1.05);
   }
-}
-
-.input-wrapper {
-  flex: 1;
-  margin-right: 2rem;
-  display: flex;
-  flex-direction: column;
 }
 
 .task-input.error {
