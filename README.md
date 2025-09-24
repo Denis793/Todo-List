@@ -18,7 +18,6 @@ A clean, interactive, and responsive **ToDo List** web application that helps us
 
 <div align="center">
   <img src="https://github.com/Denis793/Todo-List/blob/main/src/img/screens/screen.png" alt="View click" height="auto" width="100%">
-
 </div>
 
 ---
