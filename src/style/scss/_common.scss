@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--bg-grad-from), var(--bg-grad-to));
   display: flex;
   justify-content: center;
   align-items: center;

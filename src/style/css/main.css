@@ -1,13 +1,15 @@
 @charset "UTF-8";
 :root {
-  --primary: #00bfa6;
-  --primary-dark: #009c85;
+  --primary: #008044;
+  --primary-dark: #006636;
   --background: #111111;
   --card-bg: #1e1e1e;
   --text: #ffffff;
   --text-muted: #a1a1a1;
   --border-radius: 12px;
   --transition: 0.25s ease;
+  --bg-grad-from: #1f4163;
+  --bg-grad-to: #01132c;
 }
 
 * {
@@ -19,7 +21,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--bg-grad-from), var(--bg-grad-to));
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,8 +156,8 @@ input:focus {
           transform: scale(0.96);
 }
 .right-content button .icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 .right-content .edit-button {
   display: -webkit-box;
@@ -204,8 +206,8 @@ input:focus {
   color: #fff;
   font-size: 12px;
   position: absolute;
-  inset-block-start: 1px;
-  inset-inline-start: 4px;
+  inset-block-start: 0px;
+  inset-inline-start: 3px;
 }
 
 .task-block {
